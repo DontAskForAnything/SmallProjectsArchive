@@ -1,0 +1,23 @@
+:root{
+    --cardcolor: #eee;
+}
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    margin: 50px;
+    justify-content: center;
+    perspective: 500px;
+}
+
+.card {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: var(--cardcolor);  
+    cursor: pointer;
+}
+.card:hover{
+    border: 5px solid red;
+    box-sizing: border-box;
+}
