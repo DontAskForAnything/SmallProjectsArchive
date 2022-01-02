@@ -24,7 +24,7 @@ const CardArray = [
 ]
 
 // Randomizes the board if it didn't, the order of the cards would be as above, so ordered, and we don't want this
- CardArray.sort(() => 0.5 - Math.random());
+  CardArray.sort(() => 0.5 - Math.random());
 
 // Create some arrays that'll store some temp variables
 let ChosenCards = [];
@@ -60,9 +60,16 @@ function createBorad(){
     }
 }
 
+// Function that show gold cup and hide game board
+function winfunction(){
+    document.querySelector("img").style.display = 'block';
+    document.querySelector(".game-container").style.display = 'none';
+}
+
 // Function that check if our points are equal to amount of pairs
 function checkPoints(){
-    points == arrayofCards.length/2 ? alert("You found all pairs! GG") : 1;
+    document.querySelector('#points').innerHTML = "Points: " + points;
+    points == arrayofCards.length/2 ? winfunction() : 1;
 }
 
 // Function that checks Matches 
@@ -70,7 +77,9 @@ function checkPoints(){
 // if not delete style 
 function CheckMatches(){
     if(ChosenCards[0] == ChosenCards[1]){
-        alert('You found a match');
+        // alert('You found a match');
+        arrayofCards[ChosenCardsId[0]].style = '';
+        arrayofCards[ChosenCardsId[1]].style = '';
         arrayofCards[ChosenCardsId[0]].style.visibility = "hidden";
         arrayofCards[ChosenCardsId[1]].style.visibility = "hidden";
         points++;
@@ -82,7 +91,7 @@ function CheckMatches(){
         arrayofCards[ChosenCardsId[0]].style = '';
         arrayofCards[ChosenCardsId[1]].style = '';
     }
-    
+
     // also clear our temp variables 
     ChosenCardsId = [];
     ChosenCards = [];
