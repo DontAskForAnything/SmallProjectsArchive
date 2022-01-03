@@ -1,31 +1,21 @@
 html {
-    text-align: center;
-    background-color: black;
-    color: white;
-    font-weight: 300;
+    text-align: center;    background-color: black;
+    color: white;    font-weight: 300;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 button{
     outline: none;
-    width: 200px;
-    height: 55px;    
-    color: black;
-    background-color: #ffffff;
-    cursor: pointer;
-    font-size: 20px;  
-    text-align: center;
-    border: none;
-    font-weight: bold;
-    border-radius: 10px;
-    transition: transform 250ms;
-    transition-timing-function: linear;
+    width: 200px;    height: 55px;    
+    color: black;    background-color: #ffffff;
+    cursor: pointer;    font-size: 20px;  
+    text-align: center;    border: none;
+    font-weight: bold;    border-radius: 10px;
+    transition: transform 250ms;    transition-timing-function: linear;
 }
 button:hover{
    transform: scale(120%);
 }
 img{
-    margin-top: 25px;
-    object-fit: cover;
-    width:500px;
-    height:500px;
+    margin-top: 25px;    object-fit: cover;
+    width:500px;    height:500px;
 }
