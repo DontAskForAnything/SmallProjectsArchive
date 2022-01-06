@@ -18,25 +18,49 @@ function Snake(){
         ctx.fillRect(this.x , this.y , scale, scale);
     }
 
-    this.update = function(){
-    for(let i = 0; i < this.tail.length - 1; i++){
-        this.tail[i] = this.tail[i +1];
-    }
-    
-    this.tail[this.total - 1] = {x: this.x, y: this.y};
+    // this.drawEyes = function(){
+    //     ctx.fillStyle = 'black';
+    //     if(direction == 'Down'){
+    //         ctx.fillRect(this.x + scale/4 , this.y + scale/1.5 ,4,4);
+    //         ctx.fillRect(this.x + scale/2 , this.y + scale/1.5 ,4,4);
+    //     }
+    //     else if(direction == 'Up'){
+    //         ctx.fillRect(this.x + scale/4 , this.y + scale/5 ,4,4);
+    //         ctx.fillRect(this.x + scale/2 , this.y + scale/5 ,4,4);
 
-        this.x += this.xSpeed;
-        this.y += this.ySpeed;     
-        
-         if(this.x > canvas.width){
-            console.log("GG");
-        }else if(this.x < 0){
-            console.log("GG");
-        }else if(this.y > canvas.height){
-            console.log("GG");
-        }else if(this.y < 0){
-          console.log("GG");
+    //     }
+    //     else if(direction == 'Left'){
+    //         ctx.fillRect(this.x + scale/5 , this.y + scale/4 ,4,4);
+    //         ctx.fillRect(this.x + scale/5 , this.y + scale/2 ,4,4);
+    //     }
+    //     else{
+    //         ctx.fillRect(this.x + scale/1.5 , this.y + scale/4 ,4,4);
+    //         ctx.fillRect(this.x + scale/1.5 , this.y + scale/2 ,4,4);
+    //     }
+    // }
+
+    this.update = function(){
+        for(let i = 0; i < this.tail.length - 1; i++){
+            this.tail[i] = this.tail[i +1];
         }
+        
+        this.tail[this.total - 1] = {x: this.x, y: this.y};
+
+            this.x += this.xSpeed;
+            this.y += this.ySpeed;     
+        
+            
+
+
+            if(this.x >= canvas.width){
+                this.x = 0;
+            }else if(this.x < 0){
+                this.x = canvas.width - scale;
+            }else if(this.y >= canvas.height){
+                this.y = 0;
+            }else if(this.y < 0){
+                this.y = canvas.height - scale;
+            }
     }
 
     this.changeDirection = function(direction){

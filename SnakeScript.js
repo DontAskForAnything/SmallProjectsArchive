@@ -7,6 +7,7 @@ var canvas = document.querySelector('canvas'),
     canvas.setAttribute('tabindex', 1);
     canvas.focus();
     canvas.style.outline = 'none';
+    let direction;
 
 document.addEventListener('DOMContentLoaded', () => {
     snake = new Snake();
@@ -18,19 +19,18 @@ document.addEventListener('DOMContentLoaded', () => {
         snake.update();
         fruit.draw(); 
         snake.draw();
+        // snake.drawEyes();
   
 
         if(snake.eat(fruit)) {
-            console.log('Yummy!');
             fruit.newLocation();
-
         }
-    },250);
-});
 
+    },200);
+});
 window.addEventListener("keydown" , (ev) => {
 // TODO: add WSAD
-    const direction =  ev.key.replace("Arrow" , '');
+    direction =  ev.key.replace("Arrow" , '');
     snake.changeDirection(direction);
 })
 
