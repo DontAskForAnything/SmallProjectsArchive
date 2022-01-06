@@ -1,17 +1,28 @@
 function Snake(){
-    this.x = 0;
-    this.y =0;
+    this.x = Math.floor((canvas.height/scale)/2) * scale - scale*2;
+    this.y =  Math.floor((canvas.width/scale)/2) * scale;
+    console.log(Math.floor((canvas.width/scale)/2));
     this.xSpeed = scale *1;
     this.ySpeed = 0;
 
     this.draw = function(){
-        ctx.fillStyle = 'blue';
+        ctx.fillStyle = 'white';
         ctx.fillRect(this.x, this.y, scale, scale);
     }
 
     this.update = function(){
         this.x += this.xSpeed;
-        this.y += this.ySpeed;       
+        this.y += this.ySpeed;     
+        
+         if(this.x > canvas.width){
+            console.log("GG");
+        }else if(this.x < 0){
+            console.log("GG");
+        }else if(this.y > canvas.height){
+            console.log("GG");
+        }else if(this.y < 0){
+          console.log("GG");
+        }
     }
 
     this.changeDirection = function(direction){

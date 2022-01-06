@@ -1,6 +1,6 @@
 var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
-    scale = 25,
+    scale = 20,
     rows = canvas.height / scale,
     columns = canvas.width / scale
 
@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         snake.update();
         snake.draw();
-    }, 250);
+    },250);
 });
 
 window.addEventListener("keydown" , (ev) => {
