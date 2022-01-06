@@ -10,11 +10,21 @@ var canvas = document.querySelector('canvas'),
 
 document.addEventListener('DOMContentLoaded', () => {
     snake = new Snake();
+    fruit = new Fruit();
+    fruit.newLocation();
 
     window.setInterval(() => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         snake.update();
+        fruit.draw(); 
         snake.draw();
+  
+
+        if(snake.eat(fruit)) {
+            console.log('Yummy!');
+            fruit.newLocation();
+
+        }
     },250);
 });
 
