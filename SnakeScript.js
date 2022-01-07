@@ -1,6 +1,7 @@
 var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     scale = 20,
+    points = 0;
     rows = canvas.height / scale,
     columns = canvas.width / scale;
     canvas.setAttribute('tabindex', 1); 
@@ -8,6 +9,8 @@ var canvas = document.querySelector('canvas'),
     canvas.style.outline = 'none';
 
 document.querySelector("#StartButton").addEventListener("click", () => {    snake = new Snake();
+    points = 0;
+    document.querySelector("#Score").innerHTML = "Points: " + points;
     document.querySelector("#StartButton").style.display = "none";
     fruit = new Fruit();
     fruit.newLocation();
@@ -22,6 +25,8 @@ document.querySelector("#StartButton").addEventListener("click", () => {    snak
 
         if(snake.eat(fruit)) {
             fruit.newLocation();
+            points++;
+           document.querySelector("#Score").innerHTML = "Points: " + points;
         }
         if(!snake.checkCollision()){
              
