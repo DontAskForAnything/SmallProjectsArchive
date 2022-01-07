@@ -2,15 +2,13 @@ var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     scale = 20,
     rows = canvas.height / scale,
-    columns = canvas.width / scale
-
+    columns = canvas.width / scale;
     canvas.setAttribute('tabindex', 1); 
     canvas.focus();
     canvas.style.outline = 'none';
-    let direction;
 
-document.addEventListener('DOMContentLoaded', () => {
-    snake = new Snake();
+document.querySelector("#StartButton").addEventListener("click", () => {    snake = new Snake();
+    document.querySelector("#StartButton").style.display = "none";
     fruit = new Fruit();
     fruit.newLocation();
 
@@ -28,7 +26,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if(!snake.checkCollision()){
              
              clearInterval(refreshIntervalId);
-             console.log("DEAD");
+             console.log("U toched yourself");
+             document.querySelector("#StartButton").style.display = "block";
+             document.querySelector("#StartButton").innerHTML = "RESTART!"
+             ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         }else{
             snake.draw();
         }
@@ -38,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 window.addEventListener("keydown" , (ev) => {
 // TODO: add WSAD
+let direction;
     direction =  ev.key.replace("Arrow" , '');
     snake.changeDirection(direction);
 })

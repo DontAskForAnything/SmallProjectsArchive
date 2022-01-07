@@ -7,4 +7,7 @@ body{
     display: flex;    align-items: center;
     justify-content: center;
 }
-canvas{    background-color: grey;}
+#StartButton{
+    font-size: 25px;
+    cursor: pointer;
+}

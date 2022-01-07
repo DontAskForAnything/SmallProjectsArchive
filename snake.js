@@ -5,7 +5,7 @@ function Snake(){
     this.ySpeed = 0;
     this.total = 0;
     this.tail = [];
-
+    this.lastDirection;
 
     this.draw = function(){
         ctx.fillStyle = 'white';
@@ -17,27 +17,6 @@ function Snake(){
         
         ctx.fillRect(this.x , this.y , scale, scale);
     }
-
-    // this.drawEyes = function(){
-    //     ctx.fillStyle = 'black';
-    //     if(direction == 'Down'){
-    //         ctx.fillRect(this.x + scale/4 , this.y + scale/1.5 ,4,4);
-    //         ctx.fillRect(this.x + scale/2 , this.y + scale/1.5 ,4,4);
-    //     }
-    //     else if(direction == 'Up'){
-    //         ctx.fillRect(this.x + scale/4 , this.y + scale/5 ,4,4);
-    //         ctx.fillRect(this.x + scale/2 , this.y + scale/5 ,4,4);
-
-    //     }
-    //     else if(direction == 'Left'){
-    //         ctx.fillRect(this.x + scale/5 , this.y + scale/4 ,4,4);
-    //         ctx.fillRect(this.x + scale/5 , this.y + scale/2 ,4,4);
-    //     }
-    //     else{
-    //         ctx.fillRect(this.x + scale/1.5 , this.y + scale/4 ,4,4);
-    //         ctx.fillRect(this.x + scale/1.5 , this.y + scale/2 ,4,4);
-    //     }
-    // }
 
     this.update = function(){
         for(let i = 0; i < this.tail.length - 1; i++){
@@ -77,6 +56,7 @@ function Snake(){
             this.xSpeed = scale * 1;
             this.ySpeed = 0;
         }
+
     }
 
     this.eat = function(fruit){
@@ -99,7 +79,5 @@ function Snake(){
         return true;
     }
 
-    this.reset = function(){
-        
-    }
+
 }
