@@ -19,6 +19,7 @@ function Snake(){
     }
 
     this.update = function(){
+        usedDirection = lastDirection;
         for(let i = 0; i < this.tail.length - 1; i++){
             this.tail[i] = this.tail[i +1];
         }
@@ -40,23 +41,57 @@ function Snake(){
     }
 
     this.changeDirection = function(direction){
+       if(this.tail.length == 0){
         if(direction == 'Down'){
-            this.xSpeed = 0;
-            this.ySpeed = scale * 1;
+                this.xSpeed = 0;
+                this.ySpeed = scale * 1;
         }
         else if(direction == 'Up'){
-            this.xSpeed = 0;
-            this.ySpeed = -scale * 1;
+                this.xSpeed = 0;
+                this.ySpeed = -scale * 1;
         }
         else if(direction == 'Left'){
-            this.xSpeed = -scale * 1;
-            this.ySpeed = 0;
+                this.xSpeed = -scale * 1;
+                this.ySpeed = 0;
         }
         else if(direction == 'Right'){
-            this.xSpeed = scale * 1;
-            this.ySpeed = 0;
+                this.xSpeed = scale * 1;
+                this.ySpeed = 0;
         }
-
+    }
+    else{
+        //TODO Border directin check!
+        if(usedDirection == direction){
+            
+        }
+        else{
+        if(direction == 'Down'){
+            if(usedDirection != 'Up'){
+                this.xSpeed = 0;
+                this.ySpeed = scale * 1;
+            }
+        }
+        else if(direction == 'Up'){
+            if(usedDirection != 'Down'){
+                this.xSpeed = 0;
+                this.ySpeed = -scale * 1;
+            }
+        }
+        else if(direction == 'Left'){
+            if(usedDirection != 'Right'){
+                this.xSpeed = -scale * 1;
+                this.ySpeed = 0;
+            }
+        }
+        else if(direction == 'Right'){
+            if(usedDirection != 'Left'){
+                this.xSpeed = scale * 1;
+                this.ySpeed = 0;
+            }
+        }
+            }
+    }
+        lastDirection = direction;
     }
 
     this.eat = function(fruit){

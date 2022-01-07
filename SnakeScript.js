@@ -1,7 +1,8 @@
 var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d'),
     scale = 20,
-    points = 0;
+    lastDirection, usedDirection,
+    points = 0,
     rows = canvas.height / scale,
     columns = canvas.width / scale;
     canvas.setAttribute('tabindex', 1); 
@@ -44,9 +45,25 @@ document.querySelector("#StartButton").addEventListener("click", () => {    snak
     },200);
 });
 window.addEventListener("keydown" , (ev) => {
-// TODO: add WSAD
-let direction;
-    direction =  ev.key.replace("Arrow" , '');
-    snake.changeDirection(direction);
+    let direction;
+   
+    if(ev.key == "W" || ev.key == 'w'){
+        direction = 'Up';
+    }
+    else if(ev.key == "S" || ev.key == "s"){
+        direction = 'Down';
+    }
+    else if(ev.key == "A" || ev.key == "a"){
+        direction = 'Left';
+    }
+    else if(ev.key == "D" || ev.key == "d"){
+        direction = 'Right';
+    }else{
+        direction =  ev.key.replace("Arrow" , '');
+    }
+    if (typeof snake !== 'undefined') {
+        snake.changeDirection(direction);
+    }
+
 })
 
