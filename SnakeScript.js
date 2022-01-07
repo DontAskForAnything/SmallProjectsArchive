@@ -4,7 +4,7 @@ var canvas = document.querySelector('canvas'),
     rows = canvas.height / scale,
     columns = canvas.width / scale
 
-    canvas.setAttribute('tabindex', 1);
+    canvas.setAttribute('tabindex', 1); 
     canvas.focus();
     canvas.style.outline = 'none';
     let direction;
@@ -14,17 +14,25 @@ document.addEventListener('DOMContentLoaded', () => {
     fruit = new Fruit();
     fruit.newLocation();
 
-    window.setInterval(() => {
+    var refreshIntervalId = window.setInterval(() => {
+
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = "grey";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
         snake.update();
         fruit.draw(); 
-        snake.draw();
-        // snake.drawEyes();
-  
 
         if(snake.eat(fruit)) {
             fruit.newLocation();
         }
+        if(!snake.checkCollision()){
+             
+             clearInterval(refreshIntervalId);
+             console.log("DEAD");
+        }else{
+            snake.draw();
+        }
+
 
     },200);
 });

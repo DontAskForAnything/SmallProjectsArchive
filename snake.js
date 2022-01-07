@@ -48,9 +48,6 @@ function Snake(){
 
             this.x += this.xSpeed;
             this.y += this.ySpeed;     
-        
-            
-
 
             if(this.x >= canvas.width){
                 this.x = 0;
@@ -88,5 +85,21 @@ function Snake(){
             return true;
         }
         return false;
+    }
+
+    this.checkCollision = function(){
+
+            for(var i = 0; i < this.tail.length; i++){
+                if(this.x == this.tail[i].x &&
+                    this.y == this.tail[i].y){
+                        return false;
+                    }
+            }
+   
+        return true;
+    }
+
+    this.reset = function(){
+        
     }
 }
