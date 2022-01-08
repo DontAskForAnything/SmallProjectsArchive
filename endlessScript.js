@@ -1,5 +1,0 @@
-$(function () {
-    $('.container').jscroll({
-      loadingHtml: ''
-    });
-  });
