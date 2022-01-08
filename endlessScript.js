@@ -1,0 +1,5 @@
+$(function () {
+    $('.container').jscroll({
+      loadingHtml: ''
+    });
+  });
