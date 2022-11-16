@@ -1,0 +1,3 @@
+# Welcome to the archive of my small old projects!
+
+Hi, here you can find my small (mostly done on breaks at school) projects. Which I decided to **collect** together and **save** for myself for the *future*, so that in the *future* I can sit down and see what **progress** I have made....
