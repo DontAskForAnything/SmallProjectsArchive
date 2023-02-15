@@ -1,0 +1,30 @@
+:root{
+    --cardcolor: #eee;
+}
+html{
+     background-color: black; 
+     color: white;
+     text-align: center;
+}
+img{
+    display: none;
+    margin: 0 auto;
+}
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    grid-gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: var(--cardcolor);  
+    cursor: pointer;
+}
+.card:hover{
+    border: 5px solid red;
+    box-sizing: border-box;
+}
