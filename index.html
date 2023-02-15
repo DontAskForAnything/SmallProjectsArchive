@@ -1,0 +1,37 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Password Generator</title>
+        <link rel="stylesheet" href="PasswordGeneratorStyle.css">
+    </head>
+    <body>
+        <div id="pasword-generator">
+            <div class="generated-password">
+                <div id="box-GP">
+                    <input id="generated-password" value="Try me!" disabled></input>
+                    <button id="copy">Copy</button>
+                 </div>
+            </div>
+            <div class="form-control">                
+                <label for="len">Password Length</label>
+                <input id="len" value="15" type="number" min="5" max="20"  onKeyDown="return false"/>
+                <br>  <br>
+                <label for="lowercase">Include Lowercase Characters:</label>
+                <input id="lowercase" type="checkbox" checked/>
+                <br>  <br>
+                <label for="uppercase">Include Uppercase Characters:</label>
+                <input id="uppercase" type="checkbox" checked/>
+                <br>  <br>
+                <label for="numbers">Include Numbers:</label>
+                <input id="numbers" type="checkbox" checked/>
+                <br>  <br>
+                <label for="symbols">Include Symbols:</label>
+                <input id="symbols" type="checkbox" checked/>
+                <br>  <br>
+            </div>
+            <button id='generate-button'>GENERATE</button> 
+        </div>
+        <script src="PasswordGeneratorScript.js"></script>
+    </body>
+</html>
